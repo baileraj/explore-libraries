@@ -6,9 +6,9 @@
 ## purposely leaving a few things to change later!
 
 # load libraries
+library(devtools)
 library(fs)
 library(tidyverse)
-library(devtools)
 
 #' Which libraries does R search for packages?
 .libPaths()
@@ -23,6 +23,10 @@ ipt <- installed.packages() %>%
 
 ## how many packages?
 nrow(ipt)
+
+## contents of tibble constructed from install.packages()
+names(ipt)
+head(ipt)
 
 #' Exploring the packages
 

@@ -1,13 +1,14 @@
 01\_explore-libraries\_jenny.R
 ================
 baileraj
-Wed Jan 31 14:32:27 2018
+Wed Jan 31 14:39:02 2018
 
 ``` r
 ## how jenny might do this in a first exploration
 ## purposely leaving a few things to change later!
 
 # load libraries
+library(devtools)
 library(fs)
 library(tidyverse)
 ```
@@ -22,10 +23,6 @@ library(tidyverse)
     ## ── Conflicts ────────────────────────────────── tidyverse_conflicts() ──
     ## ✖ dplyr::filter() masks stats::filter()
     ## ✖ dplyr::lag()    masks stats::lag()
-
-``` r
-library(devtools)
-```
 
 Which libraries does R search for packages?
 
@@ -59,6 +56,37 @@ nrow(ipt)
 ```
 
     ## [1] 148
+
+``` r
+## contents of tibble constructed from install.packages()
+names(ipt)
+```
+
+    ##  [1] "Package"               "LibPath"              
+    ##  [3] "Version"               "Priority"             
+    ##  [5] "Depends"               "Imports"              
+    ##  [7] "LinkingTo"             "Suggests"             
+    ##  [9] "Enhances"              "License"              
+    ## [11] "License_is_FOSS"       "License_restricts_use"
+    ## [13] "OS_type"               "MD5sum"               
+    ## [15] "NeedsCompilation"      "Built"
+
+``` r
+head(ipt)
+```
+
+    ## # A tibble: 6 x 16
+    ##   Package  LibPath     Version Priority Depends Imports LinkingTo Suggests
+    ##   <chr>    <chr>       <chr>   <chr>    <chr>   <chr>   <chr>     <chr>   
+    ## 1 assertt… /Library/F… 0.2.0   <NA>     <NA>    tools   <NA>      testthat
+    ## 2 backpor… /Library/F… 1.1.2   <NA>     R (>= … utils   <NA>      <NA>    
+    ## 3 base     /Library/F… 3.4.3   base     <NA>    <NA>    <NA>      methods 
+    ## 4 base64e… /Library/F… 0.1-3   <NA>     R (>= … <NA>    <NA>      <NA>    
+    ## 5 BH       /Library/F… 1.65.0… <NA>     <NA>    <NA>    <NA>      <NA>    
+    ## 6 bindr    /Library/F… 0.1     <NA>     <NA>    <NA>    <NA>      testthat
+    ## # ... with 8 more variables: Enhances <chr>, License <chr>,
+    ## #   License_is_FOSS <chr>, License_restricts_use <chr>, OS_type <chr>,
+    ## #   MD5sum <chr>, NeedsCompilation <chr>, Built <chr>
 
 Exploring the packages
 
