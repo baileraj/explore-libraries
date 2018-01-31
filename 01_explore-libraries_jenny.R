@@ -5,16 +5,19 @@
 ## how jenny might do this in a first exploration
 ## purposely leaving a few things to change later!
 
+# load libraries
+library(fs)
+library(tidyverse)
+library(devtools)
+
 #' Which libraries does R search for packages?
 .libPaths()
 
 ## let's confirm the second element is, in fact, the default library
 .Library
-library(fs)
 path_real(.Library)
 
 #' Installed packages
-library(tidyverse)
 ipt <- installed.packages() %>%
   as_tibble()
 
@@ -65,3 +68,5 @@ ipt2 %>%
   mutate(github = grepl("github", URL)) %>%
   count(github) %>%
   mutate(prop = n / sum(n))
+
+devtools::session_info()
